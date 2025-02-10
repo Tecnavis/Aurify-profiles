@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tawasel</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
+ html {
+	 position: relative;
+	 overflow-x: hidden !important;
+}
+ * {
+	 box-sizing: border-box;
+}
+ body {
+	 font-family: 'Quicksand', sans-serif;
+	 color: #324e63;
+}
+ a, a:hover {
+	 text-decoration: none;
+}
+.icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+        }
+        .wrapper {
+            width: 100%;
+            height: auto;
+            min-height: 100vh;
+            padding: 50px 20px;
+            padding-top: 100px;
+            display: flex;
+            background-image: linear-gradient(-20deg, #090808 0%, #080808 100%);
+            background-image: linear-gradient(-20deg, #791637 0%, #2d0814 100%);
+        }
+        @media screen and (max-width: 768px) {
+            .wrapper {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 100px;
+            }
+        }
+        .profile-card {
+            width: 100%;
+            min-height: 460px;
+            margin: auto;
+            box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+            background: #fff;
+            border-radius: 12px;
+            max-width: 700px;
+            position: relative;
+        }
+        .profile-card.active .profile-card__cnt {
+            filter: blur(6px);
+        }
+        .profile-card.active .profile-card-message, .profile-card.active .profile-card__overlay {
+            opacity: 1;
+            pointer-events: auto;
+            transition-delay: 0.1s;
+        }
+        .profile-card.active .profile-card-form {
+            transform: none;
+            transition-delay: 0.1s;
+        }
+        .profile-card__img {
+            width: 150px;
+            height: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 4;
+            box-shadow: 0px 5px 50px 0px #151515, 0px 0px 0px 7px rgba(12, 12, 12, 0.5);
+        }
+        @media screen and (max-width: 576px) {
+            .profile-card__img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        .profile-card__img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .profile-card__cnt {
+            margin-top: -35px;
+            text-align: center;
+            padding: 0 20px;
+            padding-bottom: 40px;
+            transition: all 0.3s;
+        }
+        .profile-card__name {
+            font-weight: 700;
+            font-size: 24px;
+            color: #791637;
+            margin-bottom: 15px;
+        }
+        .profile-card__txt {
+            font-size: 18px;
+            font-weight: 500;
+            color: #324e63;
+            margin-bottom: 15px;
+        }
+        .profile-card__txt strong {
+            font-weight: 700;
+        }
+        .profile-card-loc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .profile-card-loc__icon {
+            display: inline-flex;
+            font-size: 27px;
+            margin-right: 10px;
+        }
+        .profile-card-inf {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-top: 35px;
+        }
+        .profile-card-inf__item {
+            padding: 10px 35px;
+            min-width: 150px;
+        }
+        @media screen and (max-width: 768px) {
+            .profile-card-inf__item {
+                padding: 10px 20px;
+                min-width: 120px;
+            }
+        }
+        .profile-card-inf__title {
+            font-weight: 700;
+            font-size: 27px;
+            color: #324e63;
+        }
+        .profile-card-inf__txt {
+            font-weight: 500;
+            margin-top: 7px;
+        }
+        .profile-card-social {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-card-social__item {
+            display: inline-flex;
+            width: 55px;
+            height: 55px;
+            margin: 15px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: #405de6;
+            box-shadow: 0px 7px 30px rgba(43, 98, 169, 0.5);
+            position: relative;
+            font-size: 21px;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        @media screen and (max-width: 768px) {
+            .profile-card-social__item {
+                width: 50px;
+                height: 50px;
+                margin: 10px;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .profile-card-social__item:hover {
+                transform: scale(1.2);
+            }
+        }
+        .profile-card-social__item.facebook {
+            background: linear-gradient(45deg,  #791637, #24050f, #791637, #c13584, #e1306c, #fd1d1d);
+            box-shadow: 0px 4px 30px rgba(8, 92, 218, 0.5);
+        }
+        .profile-card-social__item.twitter {
+            background: linear-gradient(45deg, #791637, #24050f, #791637, #c13584, #e1306c, #fd1d1d);
+            box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.7);
+        }
+        .profile-card-social__item.instagram {
+            background: linear-gradient(45deg, #791637, #24050f, #791637, #c13584, #e1306c, #fd1d1d);
+            box-shadow: 0px 4px 30px rgba(120, 64, 190, 0.6);
+        }
+        .profile-card-social__item.behance {
+            background: linear-gradient(45deg, #1769ff, #213fca);
+            box-shadow: 0px 4px 30px rgba(27, 86, 231, 0.7);
+        }
+        .profile-card-social__item.github {
+            background: linear-gradient(45deg, #333, #626b73);
+            box-shadow: 0px 4px 30px rgba(63, 65, 67, 0.6);
+        }
+        .profile-card-social__item.codepen {
+            background: linear-gradient(45deg, #324e63, #414447);
+            box-shadow: 0px 4px 30px rgba(55, 75, 90, 0.6);
+        }
+        .profile-card-social__item.link {
+            background: linear-gradient(45deg, #d5135a, #f05924);
+            box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.6);
+        }
+        .profile-card-social .icon-font {
+            display: inline-flex;
+        }
+        .profile-card-ctr {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        @media screen and (max-width: 576px) {
+            .profile-card-ctr {
+                flex-wrap: wrap;
+            }
+        }
+        .profile-card__button {
+            background: none;
+            border: none;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #fff;
+            padding: 15px 35px;
+            margin: 10px;
+            border-radius: 8px;
+            outline: none;
+            position: relative;
+            flex: 0 0 auto;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        @media screen and (max-width: 576px) {
+            .profile-card__button {
+                margin: 7px 0;
+                width: 100%;
+                padding: 12px 30px;
+            }
+        }
+        .profile-card__button.button--orange {
+            background: linear-gradient(45deg, #ff6830, #ff4b5c);
+            box-shadow: 0px 4px 25px rgba(253, 92, 111, 0.5);
+        }
+        .profile-card__button.button--orange:hover {
+            background: linear-gradient(45deg, #ff4b5c, #ff6830);
+            box-shadow: 0px 7px 30px rgba(253, 92, 111, 0.75);
+        }
+        .profile-card__button.button--blue {
+            background: linear-gradient(45deg, #24050f, #791637, #c13584, #e1306c, #fd1d1d);
+            box-shadow: 0px 4px 25px rgba(43, 98, 169, 0.5);
+        }
+        .profile-card__button.button--blue:hover {
+            background: linear-gradient(45deg, #fd1d1d, #e1306c, #c13584, #791637, #24050f);
+            box-shadow: 0px 7px 30px rgba(43, 98, 169, 0.75);
+        }
+        .profile-card-message {
+            display: block;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        .profile-card-message, .profile-card-form {
+            position: absolute;
+            padding: 40px 30px;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(13, 28, 39, 0.1);
+            left: 0;
+            top: 0;
+        }
+        .profile-card-form {
+            transform: scale(0.5);
+            transition: all 0.3s;
+            transition-delay: 0.2s;
+        }
+        .profile-card__textarea {
+            resize: none;
+            width: 100%;
+            height: 120px;
+            padding: 12px 15px;
+            font-weight: 500;
+            font-size: 18px;
+            border-radius: 6px;
+            border: 2px solid rgba(50, 78, 99, 0.2);
+            outline: none;
+            transition: all 0.3s;
+        }
+        .profile-card__textarea:hover, .profile-card__textarea:focus {
+            border-color: rgba(50, 78, 99, 0.6);
+        }
+        .profile-card__textarea::-webkit-input-placeholder {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            color: rgba(50, 78, 99, 0.6);
+        }
+        .profile-card__textarea:-ms-input-placeholder {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            color: rgba(50, 78, 99, 0.6);
+        }
+        .profile-card__textarea::placeholder {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            color: rgba(50, 78, 99, 0.6);
+        }
+        .profile-card__footer {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .profile-card__message {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .profile-card__message .icon-font {
+            color: #2cda9d;
+        }
+        .profile-card__message-send {
+            display: inline-block;
+            margin-left: 15px;
+            font-weight: 600;
+            color: #791637;
+            transition: all 0.3s;
+        }
+        .profile-card__message-send:hover {
+            text-decoration: underline;
+        }
+        .profile-card__overlay {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="profile-card js-profile-card">
+          <div class="profile-card__img" style="background-color: #f0f2f7;">
+            <img src="./logos/lawasel.png" alt="profile card">
+          </div>
+      
+          <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name">Tawasel</div>
+            <!-- <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div> -->
+            <div class="profile-card-loc">
+				<i class="fa-solid fa-location-dot"></i>
+                <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+              </span>
+      
+              <span class="profile-card-loc__txt">
+                Dubai, UAE
+              </span>
+            </div>
+      
+      
+            <div class="profile-card-social"  style="align-items: start;">
+				
+				<div>
+              <a href="tel:97143576656" class="profile-card-social__item facebook" target="_blank">
+                <span class="icon-font">
+                    <i class="fa fa-phone"></i>
+                </span>
+				
+              </a>
+			  <p style="justify-content: center; margin-top: 0px;">Phone</p>
+				</div>
+
+				<div>
+              <a href="mailto:altawaseljewelleryllc@gmail.com" class="profile-card-social__item instagram" target="_blank">
+                <span class="icon-font">
+					<i class="fa fa-envelope"></i>
+                </span>
+              </a>
+			  <p style="justify-content: center; margin-top: 0px;">  E-mail</p>
+				</div>
+				<div>
+					<a href= "https://www.google.com/maps/place/25%C2%B016'19.1%22N+55%C2%B017'55.5%22E/@25.271959,55.2961659,17z/data=!3m1!4b1!4m4!3m3!8m2!3d25.271959!4d55.2987408?entry=ttu" class="profile-card-social__item instagram" target="_blank">
+					  <span class="icon-font">
+						  <i class="fa fa-map-marker"></i>
+					  </span>
+					</a>
+					<p style="justify-content: center; margin-top: 0px;">  Location</p>
+					</div>
+			
+
+
+
+			<div>
+				<a href="https://wa.me/971585485728" class="profile-card-social__item twitter" target="_blank">
+				  
+					  <span class="icon-font">
+						  <i class="fa-brands fa-whatsapp"></i>
+						  
+					  </span></a>
+					  <p style="justify-content: center; margin-top: 0px;">Numan</p>
+			  
+				
+				</a>	
+			</div>
+			<div>
+				<a href="https://wa.me/971585154916" class="profile-card-social__item twitter" target="_blank">
+				  
+					  <span class="icon-font">
+						  <i class="fa-brands fa-whatsapp"></i>
+						  
+					  </span></a>
+					  <p style="justify-content: center; margin-top: 0px;">Ramshad</p>
+			  
+				
+				</a>	
+			</div>
+	
+			<div>
+				<a href="https://wa.me/971504352528" class="profile-card-social__item twitter" target="_blank">
+				  
+					  <span class="icon-font">
+						  <i class="fa-brands fa-whatsapp"></i>
+						  
+					  </span></a>
+					  <p style="justify-content: center; margin-top: 0px;">Noufal</p>
+			  
+				
+				</a>	
+			</div>
+
+			<div>
+				<a href="https://wa.me/971505625402" class="profile-card-social__item twitter" target="_blank">
+				  
+					  <span class="icon-font">
+						  <i class="fa-brands fa-whatsapp"></i>
+						  
+					  </span></a>
+					  <p style="justify-content: center; margin-top: 0px;">Tajudheen</p>
+			  
+				
+				</a>	
+			</div>
+
+
+			<div>
+				<a href="https://wa.me/971586868728" class="profile-card-social__item twitter" target="_blank">
+				  
+					  <span class="icon-font">
+						  <i class="fa-brands fa-whatsapp"></i>
+						  
+					  </span></a>
+					  <p style="justify-content: center; margin-top: 0px;">Abdul  Salam</p>
+			  
+				
+				</a>	
+			</div>
+            </div>
+      
+            <div class="profile-card-ctr">
+              <!-- <button class="profile-card__button button--blue j">save</button> -->
+              <button class="profile-card__button button--orange">share</button>
+            </div>
+          </div>
+      <p style="text-align: center;"> concept by &copy;Aurify</p>
+          <div class="profile-card-message js-message">
+            <form class="profile-card-form">
+              <div class="profile-card-form__container">
+                <textarea placeholder="Say something..."></textarea>
+              </div>
+
+            </form>
+      
+          </div>
+      
+        </div>
+    
+      
+      </div>
+	  <!-- 
+ABDUL SALAM DEAL 0586868728
+RAMSHAD DEAL	0585154916
+NUHMANUL HAQ FIXING	0585485728
+NOUFAL	050435 2528
+THAJUDHEEN	0559701855
+landline -043576656
+Gmail altawaselJewelleryllc@gmail.com
+       -->
+      <script>
+        var messageBox = document.querySelector('.js-message');
+  var btn = document.querySelector('.js-message-btn');
+  var card = document.querySelector('.js-profile-card');
+  var closeBtn = document.querySelectorAll('.js-message-close');
+
+  btn.addEventListener('click',function (e) {
+      e.preventDefault();
+      card.classList.add('active');
+  });
+
+  closeBtn.forEach(function (element, index) {
+     console.log(element);
+      element.addEventListener('click',function (e) {
+          e.preventDefault();
+          card.classList.remove('active');
+      });
+  });
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var saveBtn = document.getElementById("downloadVCard");
+    
+      if (saveBtn) {
+        saveBtn.addEventListener("click", function () {
+          var contact = {
+            name: "Tawasel",
+            phone: "97143576656",
+            email: "altawaselJewelleryllc@gmail.com"
+          };
+    
+          var vcard =
+            "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+            contact.name +
+            "\nTEL;TYPE=work,voice:" +
+            contact.phone +
+            "\nEMAIL:" +
+            contact.email +
+            "\nEND:VCARD";
+    
+          var blob = new Blob([vcard], { type: "text/vcard" });
+          if (navigator.msSaveBlob) {
+            // For IE and Edge
+            navigator.msSaveBlob(blob, contact.name + ".vcf");
+          } else {
+            // For other browsers
+            var link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute("download", contact.name + ".vcf");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+        });
+      }
+    });
+    
+
+        document.getElementById('shareButton').addEventListener('click', function() {
+            if (navigator.share) {
+                // Use the Web Share API
+                navigator.share({
+                    title: document.title,
+                    text: 'Check out this link:',
+                    url: window.location.href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that do not support Web Share API
+                alert('Web Share API is not supported on this browser. You can manually share the URL.');
+            }
+        });
+
+  
+      </script>
+</body>
+</html>
