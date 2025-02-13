@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <title>Aksara</title>
+    <title>FXG Gold</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
@@ -52,16 +51,18 @@
 		 padding-top: 100px;
 	}
 }
- .profile-card {
-	 width: 100%;
-	 min-height: 460px;
-	 margin: auto;
-	 box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
-	 background: #f2f8fa;
-	 border-radius: 12px;
-	 max-width: 700px;
-	 position: relative;
+.profile-card {
+     width: 100%;
+     min-height: 460px;
+     margin: auto;
+     box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+     background: #0f0f0f url('./images/fxg.jpg') no-repeat center center/cover;
+     border-radius: 12px;
+     max-width: 700px;
+     position: relative;
 }
+
+
  .profile-card.active .profile-card__cnt {
 	 filter: blur(6px);
 }
@@ -84,7 +85,7 @@
 	 overflow: hidden;
 	 position: relative;
 	 z-index: 4;
-	 box-shadow: 0px 5px 50px 0px #151515, 0px 0px 0px 7px rgba(12, 12, 12, 0.5);
+	 box-shadow: 0px 5px 50px 0px #efeded, 0px 0px 0px 7px rgba(1, 65, 113);
 }
  @media screen and (max-width: 576px) {
 	 .profile-card__img {
@@ -109,13 +110,13 @@
  .profile-card__name {
 	 font-weight: 700;
 	 font-size: 24px;
-	 color: #050505;
+	 color: #f5f0f2;
 	 margin-bottom: 15px;
 }
  .profile-card__txt {
 	 font-size: 18px;
 	 font-weight: 500;
-	 color: #0a0b0b;
+	 color: #ebf1f4;
 	 margin-bottom: 15px;
 }
  .profile-card__txt strong {
@@ -153,7 +154,7 @@
  .profile-card-inf__title {
 	 font-weight: 700;
 	 font-size: 27px;
-	 color: #324e63;
+	 color: #326342;
 }
  .profile-card-inf__txt {
 	 font-weight: 500;
@@ -174,8 +175,8 @@
 	 border-radius: 50%;
 	 align-items: center;
 	 justify-content: center;
-	 color: #fff;
-	 background: #1e2757;
+	 color: #bb8c55;
+	 background: #405de6;
 	 box-shadow: 0px 7px 30px rgba(43, 98, 169, 0.5);
 	 position: relative;
 	 font-size: 21px;
@@ -195,17 +196,17 @@
 	}
 }
  .profile-card-social__item.facebook {
-	background-color: #1e2757;
+	background-color: #ffff;
 
 
 	 box-shadow: 0px 4px 30px rgba(10, 15, 23, 0.5);
 }
  .profile-card-social__item.twitter {
-	background-color: #1e2757;
+	background-color: #ffff;
 	 box-shadow: 0px 4px 30px rgba(6, 12, 16, 0.7);
 }
  .profile-card-social__item.instagram {
-	background-color: #1e2757;
+	background-color: #ffff;
 	 box-shadow: 0px 4px 30px rgba(12, 9, 15, 0.6);
 }
  .profile-card-social__item.behance {
@@ -288,7 +289,7 @@
 }
  .profile-card__button.button--blue {
 	/* background: linear-gradient(45deg, #f4c2c2, #e7a8a8, #d69393, #c87f7f, #d49e8a, #b76e79); */
-   background-color: #1e2757;
+   background-color: #ffff;
 
 
 	 box-shadow: 0px 4px 30px rgba(9, 11, 13, 0.4);
@@ -298,9 +299,9 @@
 }
  .profile-card__button.button--orange {
   
-	background-color: #1e2757;
+	background-color: #ffff;
 
-	 /* box-shadow: 0px 4px 30px rgba(255, 255, 255, 0.35); */
+	
 }
  .profile-card__button.button--orange:hover {
 	 box-shadow: 0px 7px 30px rgba(22, 6, 8, 0.75);
@@ -392,21 +393,18 @@
 <body>
     <div class="wrapper">
         <div class="profile-card js-profile-card">
-          <div class="profile-card__img" style="background-color: #f0f2f7;">
-            <img src="./logos/Aksara-Logo-Final-Full-set_FAW-3 (1).png" alt="profile card">
+          <div class="profile-card__img" style="background-color: #014171;">
+            <img src="./logos/FXg-gold-logo-2-6 (1).png" alt="profile card">
           </div>
       
           <div class="profile-card__cnt js-profile-cnt">
-            <div class="profile-card__name">Ajmal Chikkdi</div>
-            <div class="profile-card__name">Aksara</div>
-			<a href="https://www.google.com/maps/place/White+Crystal+Jeweles/@25.2619738,55.2939597,15z/data=!4m6!3m5!1s0x3e5f43d3c3cc7639:0x631cf141f702560c!8m2!3d25.2619738!4d55.2939597!16s%2Fg%2F11kb5bdby3?entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-				<i class="fa-solid fa-location-dot" style="color: #071332;"></i>
+            <div class="profile-card__name">AjmalChikkdi</div>
+			 <div class="profile-card__name">fxggold</div>
+			<a href="https://maps.app.goo.gl/nWdLnndeXcMYvzYV9" target="_blank">
+				<i class="fa-solid fa-location-dot" style="color: #f0f2f7;"></i>
 			</a>
 			
-            <div class="profile-card__txt"></svg>135, Ground Floor, 
-                Jalan Bunus, Off, 
-                Jalan Masjid India, 
-                Kuala Lumpur 50100 </div>
+            <div class="profile-card__txt"></svg>Dubai, UAE</div>
             <div class="profile-card-loc">
               <!-- <span class="profile-card-loc__icon">
                 <svg class="icon"><use xlink:href="#icon-location"></use></svg>
@@ -440,45 +438,23 @@
             </div> -->
       
             <div class="profile-card-social">
-              <a href="tel:03-2602 2222" class="profile-card-social__item facebook" target="_blank">
+              <a href="tel:+971 50 2709 161" class="profile-card-social__item facebook" target="_blank">
                 <span class="icon-font">
                     <i class="fa fa-phone"></i>
-
                 </span>
               </a>
       
-              <a href="tel:+60 12 455 1916" class="profile-card-social__item twitter" target="_blank">
+              <a href="https://wa.me/971 50 2746 916" class="profile-card-social__item twitter" target="_blank">
                 <span class="icon-font">
-                    <i class="fa fa-tty"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
                 </span>
               </a>
       
-              <a href="  info.gnd.my@aksarajewellers.com" class="profile-card-social__item instagram" target="_blank">
+              <a href="mailto:info@fxgold.com" class="profile-card-social__item instagram" target="_blank">
                 <span class="icon-font">
                     <i class="fa fa-envelope"></i>
                 </span>
               </a>
-
-              <a href="https://www.google.com/maps/dir/11.0526464,76.0741888/135,+Ground+Floor,+Jalan+Bunus,+Off,+Jalan+Masjid+India,+Kuala+Lumpur+50100/@14.6555745,78.2127826,5z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x31cc4991e3222ae3:0x6e054a4e6d90dc15!2m2!1d101.697902!2d3.1534601?entry=ttu&g_ep=EgoyMDI1MDIwMy4wIKXMDSoASAFQAw%3D%3D " class="profile-card-social__item instagram" target="_blank">
-                <span class="icon-font">
-                    <i class="fas fa-map-marker-alt"></i>
-
-
-
-                </span>
-              </a>
-
-              <!-- <a href="https://www.instagram.com/qvd.dubai/?igsh=MTk3bDMyenVzNmVrdA%3D%3D"" class="profile-card-social__item instagram" target="_blank">
-                <span class="icon-font">
-                    <i class="fab fa-instagram"></i>
-                </span>
-              </a> -->
-
-              <!-- <a href=" " class="profile-card-social__item instagram" target="_blank">
-                <span class="icon-font">
-                    <i class="fas fa-globe"></i>
-                </span>
-              </a> -->
       
               <!-- <a href="https://www.behance.net/iaMuhammedErdem" class="profile-card-social__item behance" target="_blank">
                 <span class="icon-font">
@@ -507,14 +483,13 @@
             </div>
       
             <div class="profile-card-ctr">
-                <button class="profile-card__button button--blue">Save</button>
-                <button class="profile-card__button button--orange" onclick="shareProfile()">Share</button>
-                <!-- <button class="profile-card__button button--orange" onclick="window.location.href='https://aurifyae.github.io/White-Crystal-Gold-App-Demo/';">Live rate</button> -->
-
+                <button class="profile-card__button button--blue" style="color: #bb8c55;">Save</button>
+                <button class="profile-card__button button--orange" onclick="shareProfile() " style="color: #bb8c55;">Share</button>
+                <!-- <button class="profile-card__button button--orange" onclick="window.location.href= 'https://aurifyae.github.io/ALFA-Gold-App/' ; "  style="color: #014171;">Live rate</button> -->
             </div>
             
           </div>
-      <p style="text-align: center; color: #080708;" > concept by &copy;Aurify</p>
+      <p style="text-align: center; color: #f5f0f2;" > concept by &copy;Aurify</p>
           <div class="profile-card-message js-message">
             <form class="profile-card-form">
               <div class="profile-card-form__container">
@@ -528,7 +503,7 @@
           </div>
       
         </div>
-    
+
       
       </div>
       
@@ -557,11 +532,10 @@
 <script>
    function saveContact() {
     var contact = {
-        name: "AKSARA",
-        phone1: "+03-2602 2222",
-        phone2: "+60 12 455 1916",
+        name: "FXG Gold",
+        phone1: "971 50 2746 916",
         // phone2: "+971 56 883 5211",
-        email: "info.gnd.my@aksarajewellers.com"
+        email: "info@fxgold.com"
     };
 
     var vcard = `
@@ -587,10 +561,10 @@ END:VCARD
 document.querySelector('.profile-card__button.button--blue').addEventListener('click', saveContact);
 
     function shareProfile() {
-    const profileUrl = 'https://aurifyae.github.io/AKSARA/';
-    const contactName = "Aksara";
-    const contactPhone = "+60 12 455 1916";
-    const contactEmail = "info@qvd.ae";
+    const profileUrl = 'https://aurifyae.github.io/fxg gold/';
+    const contactName = "Fxg gold";
+    const contactPhone = "971 50 2746 916";
+    const contactEmail = "info@fxgold.com";
 
     if (navigator.share) {
         navigator.share({
